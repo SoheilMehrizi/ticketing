@@ -1,0 +1,8 @@
+# general Modules
+Django>=3.2,<4.0
+psycopg2>=2.8
+djangorestframework
+
+# Third Party Modules
+
+# Deployment Modules
