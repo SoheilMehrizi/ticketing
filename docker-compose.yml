@@ -12,4 +12,4 @@ services:
     environment:
        - SECRET_KEY="test"
        - DEBUG=True
-       - Helpical_Secret_Key = "test"
+       - Helpical_Secret_Key = "X-Api-Key"
