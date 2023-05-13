@@ -1,1 +1,2 @@
 from .generate_Customer import generate_user, schedule_Customer_Generation,Get_Customer_Id_API
+from .ticket_scripts import Post_Ticket, Post_Attachment, Put_reply, close_ticket, get_ticket, get_all_tickets

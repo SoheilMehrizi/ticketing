@@ -41,16 +41,6 @@ def Get_Customer_Id_API(self, context):
     """
     post an api to helpical for creating an ticketing customer
     and returns an customer id.
-    Required Inputs : 
-    fname
-    lname
-    email
-    position : "Student"
-    
-    output : 
-    Customers ID
-    password
-    {{url}} : Specific ticketing system url
     """
 
     url = "https://{{url}}/api/v1/customer/"
