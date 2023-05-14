@@ -14,7 +14,8 @@ def Post_Ticket(context):
     and returns 2 value : ticket_id(usage in reply consequences) and 
     Content_id(using for adding attachments)
     """
-    url = "https://{{url}}/api/v1/ticket/customer-new/"
+    address = "cs50xiran.helpical.ir"
+    url = f"https://{address}/api/v1/ticket/customer-new/"
     payload = json.dumps(context)
 
     headers = {
@@ -28,8 +29,10 @@ def Post_Attachment(file_address, context):
     """
     this function sends a request to the Helpical for attaching files to a specific content
     """
-    # the Url of request 
-    url = "https://{{url}}/api/v1/ticket/attachment"
+    
+    # the Url of request
+    address = "cs50xiran.helpical.ir"  
+    url = f"https://{address}/api/v1/ticket/attachment"
     # headers of the request
     headers = {
        'X-Api-Key': config("Helpical_Secret_Key"),
@@ -51,7 +54,8 @@ def Put_reply(context):
     this function makes an request for creating a content on a specific open ticket
     """
     # url of the customer
-    url = "https://ticket.website.com/api/v1/ticket/customer-reply/"
+    address = "cs50xiran.helpical.ir"
+    url = f"https://{address}/api/v1/ticket/customer-reply/"
 
     # headers of the request
     headers = {
@@ -74,7 +78,8 @@ def close_ticket(context):
        'Content-Type': 'application/json'
     }
 
-    url = "https://{{url}}/api/v1/ticket/customer-close/"
+    address = "cs50xiran.helpical.ir"
+    url = f"https://{address}/api/v1/ticket/customer-close/"
     payload = json.dumps(context)
 
     response = json.loads(requests.request("PUT", url, headers=headers, data=payload))
@@ -91,7 +96,8 @@ def get_ticket(customer_id, ticket_id):
     and we can see the ticket and its replies and its attachments.
     this function's url needs : customer_id and ticket_id.
     """
-    url = f"https://{{url}}/api/v1/ticket/customer-ticket/{customer_id}/{ticket_id}/"
+    address = "cs50xiran.helpical.ir"
+    url =  f"https://{address}/api/v1/ticket/customer-ticket/{customer_id}/{ticket_id}/"
     headers = {
        'X-Api-Key': config("Helpical_Secret_Key"),
        'Content-Type': 'application/json'
@@ -128,9 +134,10 @@ def get_all_tickets(customer_id):
     },]
     """
 
-    url = f"https://{{url}}/api/v1/ticket/customer-tickets/{customer_id}/"
+    address = "cs50xiran.helpical.ir"
+    url =  f"https://{address}/api/v1/ticket/customer-tickets/{customer_id}/"
     headers = {
-       'X-Api-Key': config("Helpical_Secret_Key"),
+       'X-Api-Key': config('Helpical_Secret_Key'),
        'Content-Type': 'application/json'
     }
     payload = {}

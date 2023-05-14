@@ -7,9 +7,10 @@ services:
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - ./core:/app
+
     ports:
       - "8000:8000"
     environment:
        - SECRET_KEY="test"
        - DEBUG=True
-       - Helpical_Secret_Key = "X-Api-Key"
+       - Helpical_Secret_Key=2yrgh9YfrmuEOyZ5BGeUKhEsmqn4ky5bM6zvahFl5zcEdJ3ll3ku8AzBDzQQk92m
