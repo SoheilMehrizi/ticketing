@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Ticket #{{ ticket_details.content_id }} - {{ ticket_details.message }}</h1>
+  {% comment %} <p>{{ ticket_details.content }}</p> {% endcomment %}
+  
+  <!-- display ticket replies, if any -->
+  {% comment %} {% if ticket_details.replies %} {% endcomment %}
+    <h2>Replies:</h2>
+    
+    {% for reply in ticket_details.content %}
+      <div class="ticket-reply">
+        <p class="reply-content">{{ reply.message }}</p>
+      </div>
+    {% endfor %}
+  
+  <!-- provide a form to add a new reply -->
+  <h2>Add a reply:</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+  </form>
+{% endblock %}

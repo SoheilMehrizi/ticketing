@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h1>All Tickets</h1>
+  
+  <!-- link to create a new ticket -->
+  <a href="{% url 'ticketing:create_ticket' %}">Create a new ticket</a>
+  
+  <!-- check if there are any tickets -->
+  {% if tickets %}
+  
+    <!-- display each ticket -->
+    <ul>
+    {% for ticket in tickets %}
+      <li>
+        <h2>{{ ticket.title }}</h2>
+        <p>{{ ticket.target_user_name }}</p>
+        <a href="{% url 'ticketing:ticket_detail' ticket.ticket_id %}">View details</a>
+        <!-- add more ticket information as needed -->
+      </li>
+    {% endfor %}
+    </ul>
+    
+  {% else %}
+  
+    <!-- display message if there are no tickets -->
+    <p>There are no tickets to display.</p>
+    
+  {% endif %}
+
+{% endblock %}
